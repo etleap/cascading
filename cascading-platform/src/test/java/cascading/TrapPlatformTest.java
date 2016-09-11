@@ -470,7 +470,7 @@ public class TrapPlatformTest extends PlatformTestCase
 
     Tap source = getPlatform().getTextFile( inputFileApache );
     Scheme scheme = getPlatform().getTestFailScheme();
-    Tap trap2 = getPlatform().getTap( scheme, getOutputPath( "trapFailure/badTrap" ), SinkMode.REPLACE );
+    Tap trap2 = getPlatform().getTextFile( "/invalid/path", SinkMode.REPLACE );
     Tap sink = getPlatform().getTextFile( getOutputPath( "trapFailure/tap" ), SinkMode.REPLACE );
 
     Pipe pipe = new Each( new Pipe( "firstPipe" ), new Fields( "line" ), new RegexParser( new Fields( "ip" ), "^[^ ]*" ), new Fields( "ip" ) );
